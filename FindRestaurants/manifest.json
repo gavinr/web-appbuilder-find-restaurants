@@ -1,0 +1,14 @@
+{
+  "name": "FindRestaurants",
+  "platform": "HTML",
+  "version": "2.6",
+  "wabVersion": "2.6",
+  "author": "Gavin Rehkemper",
+  "description": "This widget helps you find a resaturant. Also adds a feature action to find restaurants near the selected feature(s).",
+  "copyright": "",
+  "license": "",
+  "featureActions": [{
+    "name": "RestaurantsNear",
+    "uri": "RestaurantsNearAction"
+  }]
+}

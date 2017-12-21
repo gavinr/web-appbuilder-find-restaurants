@@ -1,0 +1,13 @@
+.find-restaurants .result-display {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid gray;
+}
+.find-restaurants .result-display img {
+  max-width: 100px;
+  float: left;
+  margin-right: 5px;
+}
+.find-restaurants .clear {
+  clear: both;
+}
