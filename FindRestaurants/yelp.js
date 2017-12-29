@@ -7,15 +7,24 @@ function(
 ) {
   return declare([], {
     apiKey: '',
-    // apiUrl: 'https://api.yelp.com/v3',
     apiSearchUrl:'https://api.yelp.com/v3/businesses/search',
 
     constructor: function(apiKey) {
-      this.apiKey = apiKey
+      // We must pass an API key into the constructor or things will not work at all:
+      if(apiKey) {
+        this.apiKey = apiKey
+      } else {
+        console.error('Error getting API key.');
+      }
     },
 
+    /**
+     * Given a point (x/y), return nearest restaurants sorted by distance.
+     * @param {number} x - the x attiribute of the lat/long
+     * @param {number} y - the y attribute of the lat/long
+     * @returns {promise} returns a promise that will resolve to the results.
+     */
     getLocations(x, y) {
-      console.log('yelp.getLocations', x, y);
       return esriRequest({
         url: this.apiSearchUrl,
         content: { 
@@ -28,7 +37,7 @@ function(
         },
         handleAs: "json",
         headers: {
-          "Authorization": "Bearer vZ1m8Fw9d7TMXzFkM7X_wv7ldW8iKo5EXJG_DdUohgSHaq9M0O5aBj8acaKxHFERVhpk4_ZPDFm4ZJ_aXeONeQoV_8vkwuMznxi5ZupONAG5rJD49LlDsCAzefc7WnYx"
+          "Authorization": "Bearer " + this.apiKey
         }
       }, {
         usePost: false

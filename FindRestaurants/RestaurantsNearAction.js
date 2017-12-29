@@ -24,14 +24,12 @@ define([
     iconFormat: 'png',
 
     isFeatureSupported: function(featureSet){
-      console.log('isFeatureSupported', featureSet);
       return featureSet.features.length > 0 && featureSet.features[0].geometry.type == 'point';
     },
 
     onExecute: function(featureSet){
       WidgetManager.getInstance().triggerWidgetOpen(this.widgetId)
       .then(function(myWidget) {
-        console.log('featureSet', featureSet);
         myWidget.showResultsForPoint(featureSet.features[0].geometry);
       });
     }

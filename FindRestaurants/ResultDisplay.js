@@ -13,6 +13,7 @@ function(
 
     // attributes
     // see https://dojotoolkit.org/reference-guide/1.10/quickstart/writingWidgets.html#mapping-widget-attributes-to-domnode-attributes
+    // but we cannot use this method for href and src, so those are assigned in the postCreate below.
     name: "unknown",
     _setNameAttr: { node: "nameNode", type: "innerHTML" },
 

@@ -21,50 +21,46 @@ function(
 
     postCreate: function() {
       this.inherited(arguments);
+      // when the widget is created, create an instance of "Yelp" to be used later, passing the Yelp API key from the 
+      // Web AppBuilder config.
       this.yelp = new Yelp(this.config.apiKey);
 
       this.createSearchWidget();
-      console.log('postCreate');
     },
 
     startup: function() {
       this.inherited(arguments);
-      console.log('startup');
     },
 
     createSearchWidget: function() {
+      // Create a new "Search" widget (https://developers.arcgis.com/javascript/3/jsapi/search-amd.html) inside our 
+      // widget.
       this.search = new Search({
         map: this.map,
         autoNavigate: false
       }, this.searchWidgetWrapper);
       this.search.startup();
+
+      // Setup an event listener so when a search is completed, we'll take that point location and do a Yelp search 
+      // with it:
       on(this.search, 'select-result', function(evt) {
-        console.log('result', evt);
         this.showResultsForPoint(evt.result.feature.geometry);
       }.bind(this));
     },
 
-    searchButtonClickHandler: function(evt) {
-      this.showResultsForAddress(this.searchText.value);
-    },
-
-    showResultsForAddress: function(address) {
-      // first geocode the address
-
-      // Then take the first result and call "showResultsForXY"
-    },
-
-    // Given a point geometry, calls the yelp api and then passes the results to displayResults
+    /**
+     * Given a point geometry, calls the yelp api and then passes the results to displayResults
+     */
     showResultsForPoint: function(point) {
-      console.log('showResultsForPoint', point);
       this.yelp.getLocations(point.getLatitude(), point.getLongitude()).then(function(evt) {
-        console.log('locations', evt);
         this.displayResults(evt.businesses);
       }.bind(this));
     },
 
+    /**
+     * Given an array of Yelp search results, display them in our widget
+     */
     displayResults: function(resultsArray) {
-      console.log('displayResults', resultsArray);
       if(this.results) {
         this.results.forEach(function(result) {
           result.destroy();
