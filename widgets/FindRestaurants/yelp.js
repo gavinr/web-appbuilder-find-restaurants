@@ -1,6 +1,7 @@
 define([
   'dojo/_base/declare',
   'esri/request',
+  'esri/config'
 ],
 function(
   declare, esriRequest
@@ -10,6 +11,8 @@ function(
     apiSearchUrl:'https://cors-anywhere.herokuapp.com/api.yelp.com/v3/businesses/search',
 
     constructor: function(apiKey) {
+      esriConfig.defaults.io.corsEnabledServers.push("cors-anywhere.herokuapp.com");
+
       // We must pass an API key into the constructor or things will not work at all:
       if(apiKey) {
         this.apiKey = apiKey
