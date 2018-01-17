@@ -7,7 +7,7 @@ function(
 ) {
   return declare([], {
     apiKey: '',
-    apiSearchUrl:'api.yelp.com/v3/businesses/search',
+    apiSearchUrl:'//api.yelp.com/v3/businesses/search',
 
     constructor: function(apiKey) {
       // We must pass an API key into the constructor or things will not work at all:
