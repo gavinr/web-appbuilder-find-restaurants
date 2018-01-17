@@ -45,7 +45,9 @@ function(
     showResultsForPoint: function(point) {
       this.yelp.getLocations(point.getLatitude(), point.getLongitude()).then(function(evt) {
         this.displayResults(evt.businesses);
-      }.bind(this));
+      }.bind(this), function(err) {
+        console.error('error:', err);
+      });
     },
 
     /**
