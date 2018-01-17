@@ -10,14 +10,9 @@ define([
 function(
   declare, BaseWidget, Search, on, Yelp, ResultDisplay, domConstruct
 ) {
-  //To create a widget, you need to derive from BaseWidget.
-  return declare([BaseWidget], {
-    // DemoWidget code goes here
+  var clazz = declare([BaseWidget], {
 
-    //please note that this property is be set by the framework when widget is loaded.
-    //templateString: template,
-
-    baseClass: 'find-restaurants',
+  	baseClass: 'find-restaurants',
 
     postCreate: function() {
       this.inherited(arguments);
@@ -26,10 +21,6 @@ function(
       this.yelp = new Yelp(this.config.apiKey);
 
       this.createSearchWidget();
-    },
-
-    startup: function() {
-      this.inherited(arguments);
     },
 
     createSearchWidget: function() {
@@ -76,4 +67,5 @@ function(
     }
 
   });
+  return clazz;
 });

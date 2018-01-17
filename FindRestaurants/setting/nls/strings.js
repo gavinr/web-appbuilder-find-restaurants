@@ -1,5 +1,5 @@
 define({
 	root: ({
-		configText: "Set config text:"
+		configText: "API Key:"
   })
 });
