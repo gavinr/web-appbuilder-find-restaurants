@@ -1,0 +1,64 @@
+.find-restaurants .result-display {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid gray;
+}
+.find-restaurants .result-display img {
+  max-width: 100px;
+  float: left;
+  margin-right: 5px;
+}
+.find-restaurants .clear {
+  clear: both;
+}
+.starsLink {
+  display: block;
+  height: 14px;
+  width: 82px;
+  margin-top: 5px;
+}
+.find-restaurants .hidden {
+  display: none;
+}
+
+/** Yelp stying per https://www.yelp.com/developers/display_requirements **/
+.yelpLink {
+  background-image: url(../images/Yelp_trademark_RGB.png);
+  float: right;
+  background-size: cover;
+  height: 52px;
+  width: 80px;
+}
+.starsLink.rating_0 {
+  background-image: url(../images/yelp_stars/small_0.png);
+}
+.starsLink.rating_05 {
+  background-image: url(../images/yelp_stars/small_0_half.png);
+}
+.starsLink.rating_1 {
+  background-image: url(../images/yelp_stars/small_1.png);
+}
+.starsLink.rating_15 {
+  background-image: url(../images/yelp_stars/small_1_half.png);
+}
+.starsLink.rating_2 {
+  background-image: url(../images/yelp_stars/small_2.png);
+}
+.starsLink.rating_25 {
+  background-image: url(../images/yelp_stars/small_2_half.png);
+}
+.starsLink.rating_3 {
+  background-image: url(../images/yelp_stars/small_3.png);
+}
+.starsLink.rating_35 {
+  background-image: url(../images/yelp_stars/small_3_half.png);
+}
+.starsLink.rating_4 {
+  background-image: url(../images/yelp_stars/small_4.png);
+}
+.starsLink.rating_45 {
+  background-image: url(../images/yelp_stars/small_4_half.png);
+}
+.starsLink.rating_5 {
+  background-image: url(../images/yelp_stars/small_5.png);
+}

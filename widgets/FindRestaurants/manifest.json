@@ -1,0 +1,21 @@
+{
+  "name": "FindRestaurants",
+  "platform": "HTML",
+  "version": "2.7",
+  "wabVersion": "2.7",
+  "author": "Gavin Rehkemper",
+  "description": "Allows a user to find restaurants near a location using the Yelp.com API.",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "properties": {
+    "hasConfig": true,
+    "hasStyle": true,
+    "hasLocale": true,
+    "hasUIFile": true,
+    "hasSettingPage": true
+  },
+  "featureActions": [{
+    "name": "RestaurantsNear",
+    "uri": "RestaurantsNearAction"
+  }]
+}
