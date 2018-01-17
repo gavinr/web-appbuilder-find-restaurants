@@ -1,15 +1,17 @@
 define([
   'dojo/_base/declare',
   'esri/request',
+  'esri/config'
 ],
 function(
-  declare, esriRequest
+  declare, esriRequest, esriConfig
 ) {
   return declare([], {
     apiKey: '',
-    apiSearchUrl:'//api.yelp.com/v3/businesses/search',
+    apiSearchUrl:'https://api.yelp.com/v3/businesses/search',
 
     constructor: function(apiKey) {
+			esriConfig.defaults.io.corsEnabledServers.push('api.yelp.com');
       // We must pass an API key into the constructor or things will not work at all:
       if(apiKey) {
         this.apiKey = apiKey
