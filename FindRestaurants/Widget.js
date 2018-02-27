@@ -52,13 +52,18 @@ function(
      * Given an array of Yelp search results, display them in our widget
      */
     displayResults: function(resultsArray) {
+      // If we've already done a search, destroy all the instances of the 
+      // ResultDisplay widget that we've created before:
       if(this.results) {
         this.results.forEach(function(result) {
           result.destroy();
         });
       }
 
+      // Create an array to hold references to the instances of ResultDisplay we're creating:
       this.results = [];
+      // For each result we got from the API, create an instance of ResultDisplay
+      // and place it into the "resultsWrapper" dom node.
       resultsArray.forEach(function(result) {
         var resultDisplay = new ResultDisplay(result);
         resultDisplay.placeAt(this.resultsWrapper, 'last');
